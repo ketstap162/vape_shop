@@ -23,7 +23,7 @@ class Section(models.Model):
     image = models.ImageField(null=True, blank=True, upload_to=image_path_section)
 
     def __str__(self):
-        return self.name.title()
+        return self.name
 
 
 class Category(models.Model):
@@ -34,7 +34,7 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
 
     def __str__(self):
-        return self.name.title()
+        return self.name
 
 
 class Product(models.Model):
@@ -44,4 +44,4 @@ class Product(models.Model):
     category_id = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
-        return self.name.title()
+        return self.name

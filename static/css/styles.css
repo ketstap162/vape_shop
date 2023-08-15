@@ -1,0 +1,92 @@
+h1{
+    text-align: center;
+}
+
+hr{
+    height: 1px;
+    background-color: rebeccapurple;
+    border: none;
+}
+
+\header {
+    margin: 20px;
+}
+
+.background-main{
+    background-size: 250px;
+    background-repeat: repeat;
+    background-color: gray;
+    color: rgb(220, 220, 220);
+}
+
+.header-main{
+    color: rgb(210, 210, 210);
+}
+
+.nav-header {
+    width: 1100px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid black;
+    color: black;
+}
+
+.navbar-header{
+    display: flex;
+    gap: 0.5rem;
+    color: black;
+}
+
+.nav-text{
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.section-img {
+    max-width: 30px;
+    max-height: 30px;
+    margin: 0 5px;
+}
+
+.content-block {
+    width: 1100px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid black;
+}
+
+.newspaper-content {
+    width: 600px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 0;
+    border: 2px solid black;
+}
+
+/* DROPDOWN MENU */
+
+.menu-container {
+    width: 200px;
+}
+
+.main-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-menu li {
+}
+
+.dropdown-menu {
+    padding: 5px;
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}

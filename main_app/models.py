@@ -10,12 +10,12 @@ def get_file_name(model_name, filename):
 
 def image_path_section(model_instance, filename):
     filename = get_file_name(model_instance.name, filename)
-    return os.path.join("uploads/sections/", filename)
+    return os.path.join("sections/", filename)
 
 
 def image_path_product(model_instance, filename):
     filename = get_file_name(model_instance.name, filename)
-    return os.path.join("uploads/products/", filename)
+    return os.path.join("products/", filename)
 
 
 class Section(models.Model):

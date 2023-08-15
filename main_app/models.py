@@ -44,5 +44,11 @@ class Product(models.Model):
     category_id = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     price = models.FloatField()
 
+    def get_description(self):
+        if len(self.description) >= 50:
+            return self.description[:47].strip() + "..."
+        else:
+            return self.description
+
     def __str__(self):
         return self.name

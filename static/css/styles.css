@@ -90,3 +90,84 @@ hr{
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+
+/* PRODUCT LIST */
+.product-list-body{
+    margin: 0 auto;
+    width: 1040px;
+    opacity: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
+}
+
+.product-card{
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 230px;
+    position: relative;
+    background-color: rgba(200, 200, 200, 0.8);
+    border: 4px solid grey;
+    border-radius: 20px;
+    text-align: left;
+    color: black;
+    box-shadow: 0 0 20px black;
+    overflow: hidden;
+}
+
+.card-header{
+    font-size: 25px;
+    background-color: transparent;
+    border: none;
+    margin-top: 0;
+    padding: 5px;
+}
+
+.card-img{
+    max-width: 200px;
+    max-height: 200px;
+    border: 2px solid black;
+    border-radius: 30px;
+    background-color: gray;
+    margin: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.card-stat{
+    height: 50px;
+}
+
+.card-stars{
+    text-shadow: 1px 1px gray, -1px -1px gray, 1px -1px gray, -1px 1px gray;
+    display: inline;
+    font-size: 1.5em;
+}
+
+.item-img {
+    width: 25px;
+    height: 25px;
+    object-fit: scale-down;
+}
+
+.filter-el{
+    margin: 0 5px;
+}
+
+.element-link{
+    width: 40px;
+}
+
+.card-hr{
+    background-color: grey;
+    margin: 5px;
+    padding: 0;
+}
+
+.card-link{
+    position: absolute;
+    inset: 0;
+    border: 0 solid transparent;
+    border-radius: 15px;
+}

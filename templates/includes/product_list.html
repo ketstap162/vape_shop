@@ -1,0 +1,47 @@
+{% for product in products %}
+{% load static %}
+
+<div class="container-fluid content-block product-list-body">
+  {% for product in products %}
+    <div class="product-card">
+      <div>
+        {% if product.image %}
+          <img
+            src="{{ product.image.url }}"
+            alt="Avatar"
+            class="card-img"
+          >
+        {% else %}
+          <img
+            src="{% static 'images/background.png' %}"
+            alt="Avatar"
+            class="card-img"
+          >
+        {% endif %}
+      </div>
+
+      <h1 class="card-header">{{ product.name }}</h1>
+      <hr class="card-hr">
+      <table>
+        <tr class="card-stat">
+          <th>Title</th>
+          <td style="padding-left: 10px">{{ product.get_description }}</td>
+        </tr>
+        <tr class="card-stat">
+            <th>Category:</th>
+          <td style="padding-left: 10px">
+            <div>{{ product.category_id }}</div>
+          </td>
+        </tr>
+        <tr class="card-stat">
+            <th>Price:</th>
+          <td style="padding-left: 10px">
+            <div style="color: #d1b904" class="card-stars">{{ product.price }} $</div>
+          </td>
+        </tr>
+      </table>
+    <a href="#" class="card-link"></a>
+    </div>
+  {% endfor %}
+ </div>
+{% endfor %}

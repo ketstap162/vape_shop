@@ -23,8 +23,9 @@
   <body class="background-main" style="background-image: url({% static 'images/Background.png' %})">
     <div class="container-fluid content-block">
       {% block content %}
-        Newspaper's Agency Info
+        {% include "includes/product_list.html" %}
       {% endblock %}
     </div>
+  <div style="width: 100px; height: 10px"></div>
   </body>
 </html>

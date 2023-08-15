@@ -27,6 +27,9 @@ class Category(models.Model):
     name = models.CharField(max_length=40, unique=True)
     section_id = models.ForeignKey(Section, on_delete=models.SET_NULL, null=True, blank=True)
 
+    class Meta:
+        verbose_name_plural = "Categories"
+
 
 class Product(models.Model):
     name = models.CharField(max_length=100)

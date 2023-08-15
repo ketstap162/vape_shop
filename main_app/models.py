@@ -22,6 +22,9 @@ class Section(models.Model):
     name = models.CharField(max_length=40, unique=True)
     image = models.ImageField(null=True, blank=True, upload_to=image_path_section)
 
+    def __str__(self):
+        return self.name.title()
+
 
 class Category(models.Model):
     name = models.CharField(max_length=40, unique=True)
@@ -30,9 +33,15 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "Categories"
 
+    def __str__(self):
+        return self.name.title()
+
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     image = models.ImageField(null=True, blank=True, upload_to=image_path_product)
     category_id = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
+
+    def __str__(self):
+        return self.name.title()

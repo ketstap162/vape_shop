@@ -42,6 +42,7 @@ class Product(models.Model):
     description = models.TextField()
     image = models.ImageField(null=True, blank=True, upload_to=image_path_product)
     category_id = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
+    price = models.FloatField()
 
     def __str__(self):
         return self.name

@@ -15,7 +15,7 @@ class SectionForm(forms.ModelForm):
 
 
 class DisplayImageMixin:
-    def display_image(self, obj):
+    def display_image(self, obj) -> str:
         if obj.image:
             return format_html('<img src="{}" width="50"/>'.format(obj.image.url))
         else:

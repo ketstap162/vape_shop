@@ -33,6 +33,9 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "Categories"
 
+    def name_without_spaces(self):
+        return self.name.replace(" ", "_")
+
     def __str__(self):
         return self.name
 

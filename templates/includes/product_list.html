@@ -1,6 +1,6 @@
-{% for product in products %}
 {% load static %}
 
+{% if products %}
 <div class="container-fluid content-block product-list-body">
   {% for product in products %}
     <div class="product-card">
@@ -13,7 +13,7 @@
           >
         {% else %}
           <img
-            src="{% static 'images/background.png' %}"
+            src="{% static 'images/Placeholder.png' %}"
             alt="Avatar"
             class="card-img"
           >
@@ -26,6 +26,12 @@
         <tr class="card-stat">
           <th>Title</th>
           <td style="padding-left: 10px">{{ product.get_description }}</td>
+        </tr>
+        <tr class="card-stat">
+            <th>Section:</th>
+          <td style="padding-left: 10px">
+            <div>{{ product.category_id.section_id }}</div>
+          </td>
         </tr>
         <tr class="card-stat">
             <th>Category:</th>
@@ -44,4 +50,6 @@
     </div>
   {% endfor %}
  </div>
-{% endfor %}
+{% else %}
+  No products.
+{% endif %}

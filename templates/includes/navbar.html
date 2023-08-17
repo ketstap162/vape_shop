@@ -1,8 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="navbar-brand navbar-header" style="display: flex; gap: 0.5rem; color: rgb(220, 220, 220);">
     {% load static %}
-    <img src="{% static 'images/SiteIcon.png' %}" width="30" height="30" alt="SiteIcon">
-    <div style="color: black">VapeShop</div>
+    <a class="nav-link" href="{% url 'MainApp:home' %}">
+      <div style="display: flex; flex-direction: row">
+        <img src="{% static 'images/SiteIcon.png' %}" width="30" height="30" alt="SiteIcon">
+        <div style="color: black">VapeShop</div>
+      </div>
+    </a>
   </div>
 
   <div class="collapse navbar-collapse" id="navbarNav">
@@ -10,13 +14,13 @@
       {% for section in sections %}
       <li class="nav-item dropdown">
 
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="?section={{ section }}">
           <img class="section-img" src="{{ section.image.url }}" alt="SectionIcon">
           {{ section }}
         </a>
         <ul class="dropdown-menu">
           {% for category in section.category_set.all %}
-          <li><a class="nav-link" href="#">{{ category }}</a></li>
+          <li><a class="nav-link" href="?category={{ category.name_without_spaces }}">{{ category }}</a></li>
           {% endfor %}
         </ul>
       </li>

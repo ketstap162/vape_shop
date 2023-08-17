@@ -16,7 +16,7 @@ hr{
     background-size: 250px;
     background-repeat: repeat;
     background-color: gray;
-    color: rgb(220, 220, 220);
+    color: black;
 }
 
 .header-main{
@@ -129,7 +129,7 @@ hr{
     max-height: 200px;
     border: 2px solid black;
     border-radius: 30px;
-    background-color: gray;
+    background-color: white;
     margin: auto;
     display: block;
     margin-bottom: 10px;

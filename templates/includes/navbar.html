@@ -1,0 +1,59 @@
+{% load i18n %}
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="navbar-brand navbar-header" style="display: flex; gap: 0.5rem; color: rgb(220, 220, 220);">
+    {% load static %}
+    <a class="nav-link" href="{% url 'MainApp:home' %}">
+      <div style="display: flex; flex-direction: row">
+        <img src="{% static 'images/SiteIcon.png' %}" width="30" height="30" alt="SiteIcon">
+        <div style="color: black">VapeShop</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav main-menu">
+      {% for section in sections %}
+      <li class="nav-item dropdown">
+
+        <a class="nav-link" href="?section={{ section }}">
+          <img class="section-img" src="{{ section.image.url }}" alt="SectionIcon">
+          {{ section }}
+        </a>
+        <ul class="dropdown-menu">
+          {% for category in section.category_set.all %}
+          <li><a class="nav-link" href="?category={{ category.name_without_spaces }}">{{ category }}</a></li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="float-right">
+  {% if user.is_authenticated %}
+    {% if user.is_superuser %}
+       <a href="/admin" class="btn btn-dark btn-sml" target="_blank">Admin page</a>
+    {% endif %}
+  {% endif %}
+
+  <div class="float-right" style="margin-left: 10px">
+    <form action="{% url 'set_language' %}" method="post">
+      {% csrf_token %}
+      <input name="next" type="hidden" value="{{ redirect_to }}">
+      <select name="language">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+          <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+            selected{% endif %}>
+            {{ language.name_local }} ({{ language.code }})
+          </option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Go">
+    </form>
+  </div>
+  </div>
+</nav>

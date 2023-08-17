@@ -1,19 +1,19 @@
+from __future__ import annotations
 import os
-
 from django.db import models
 
 
-def get_file_name(model_name, filename):
+def get_file_name(model_name: str, filename: str) -> str:
     _, extension = os.path.splitext(filename)
     return "_".join(model_name.split()).lower() + extension
 
 
-def image_path_section(model_instance, filename):
+def image_path_section(model_instance: Section, filename: str) -> str:
     filename = get_file_name(model_instance.name, filename)
     return os.path.join("sections/", filename)
 
 
-def image_path_product(model_instance, filename):
+def image_path_product(model_instance: Product, filename: str) -> str:
     filename = get_file_name(model_instance.name, filename)
     return os.path.join("products/", filename)
 
@@ -33,7 +33,7 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "Categories"
 
-    def name_without_spaces(self):
+    def name_without_spaces(self) -> str:
         return self.name.replace(" ", "_")
 
     def __str__(self):
@@ -47,7 +47,7 @@ class Product(models.Model):
     category_id = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     price = models.FloatField()
 
-    def get_description(self):
+    def get_description(self) -> str:
         if len(self.description) >= 50:
             return self.description[:47].strip() + "..."
         else:

@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="navbar-brand navbar-header" style="display: flex; gap: 0.5rem; color: rgb(220, 220, 220);">
     {% load static %}
@@ -28,14 +30,30 @@
     </ul>
   </div>
 
+  <div class="float-right">
   {% if user.is_authenticated %}
-    <div class="float-right">
-      {% if user.is_superuser %}
-         <a href="/admin" class="btn btn-dark btn-sml" target="_blank">Admin page</a>
-      {% endif %}
-    </div>
-  {% else %}
-    <div class="float-center">
-    </div>
+    {% if user.is_superuser %}
+       <a href="/admin" class="btn btn-dark btn-sml" target="_blank">Admin page</a>
+    {% endif %}
   {% endif %}
+
+  <div class="float-right" style="margin-left: 10px">
+    <form action="{% url 'set_language' %}" method="post">
+      {% csrf_token %}
+      <input name="next" type="hidden" value="{{ redirect_to }}">
+      <select name="language">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+          <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+            selected{% endif %}>
+            {{ language.name_local }} ({{ language.code }})
+          </option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Go">
+    </form>
+  </div>
+  </div>
 </nav>

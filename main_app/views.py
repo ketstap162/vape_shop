@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from main_app.models import Section, Category, Product
+from main_app.models import Section, Product
 
 
 def home_page_view(request):

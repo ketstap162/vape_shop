@@ -5,7 +5,7 @@ from django.db import models
 
 def get_file_name(model_name: str, filename: str) -> str:
     _, extension = os.path.splitext(filename)
-    return "_".join(model_name.split()).lower() + extension
+    return "_".join(model_name.replace("/", "_").split()).lower() + extension
 
 
 def image_path_section(model_instance: Section, filename: str) -> str:
